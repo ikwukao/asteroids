@@ -50,9 +50,7 @@ def main() -> None:
     pygame.init()
 
     # Create the main application window.
-    screen = pygame.display.set_mode(
-        (SCREEN_WIDTH, SCREEN_HEIGHT)
-    )
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
     # Clock used to maintain a consistent frame rate.
     clock = pygame.time.Clock()
@@ -101,9 +99,7 @@ def main() -> None:
     )
 
     # The asteroid field only updates—it is never drawn.
-    AsteroidField.containers = (
-        updatable,
-    )
+    AsteroidField.containers = (updatable,)
 
     # -----------------------------------------------------------------
     # Game Object Creation
@@ -123,7 +119,6 @@ def main() -> None:
     # -----------------------------------------------------------------
 
     while True:
-
         # Record a periodic snapshot of the game state.
         log_state()
 

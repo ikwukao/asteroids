@@ -157,14 +157,12 @@ def log_state() -> None:
 
     # Search the caller's local variables for pygame objects.
     for key, value in local_vars.items():
-
         # Record screen dimensions.
         if "pygame" in str(type(value)) and hasattr(value, "get_size"):
             screen_size = list(value.get_size())
 
         # Serialize pygame sprite groups.
         if hasattr(value, "__class__") and "Group" in value.__class__.__name__:
-
             sprites_data: list[SpriteInfo] = []
 
             # Record only a representative sample of sprites.
@@ -172,9 +170,7 @@ def log_state() -> None:
                 if i >= _SPRITE_SAMPLE_LIMIT:
                     break
 
-                sprite_info = {
-                    "type": sprite.__class__.__name__
-                }
+                sprite_info = {"type": sprite.__class__.__name__}
 
                 if hasattr(sprite, "position"):
                     sprite_info["pos"] = [
@@ -205,10 +201,7 @@ def log_state() -> None:
 
         # Serialize standalone sprite objects when no groups exist.
         if len(game_state) == 0 and hasattr(value, "position"):
-
-            sprite_info = {
-                "type": value.__class__.__name__
-            }
+            sprite_info = {"type": value.__class__.__name__}
 
             sprite_info["pos"] = [
                 round(value.position.x, 2),
