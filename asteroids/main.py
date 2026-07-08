@@ -40,9 +40,7 @@ def main():
         drawable,
     )
 
-    AsteroidField.containers = (
-        updatable,
-    )
+    AsteroidField.containers = (updatable,)
 
     player = Player(
         SCREEN_WIDTH / 2,
